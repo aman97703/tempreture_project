@@ -1,0 +1,23 @@
+@media(max-width:768px){
+    .main_header_left{
+        height: auto;
+        margin: 5rem 0;
+    }
+    .main_header_right{
+        height: auto;
+        margin-top: 3rem;
+    }
+    .carousel-item img{
+        height: auto !important ;
+    }
+    .temp_form{
+        width: auto;
+    }
+    .temp_information{
+        width: auto;
+    }
+    #temp {
+        font-size: 5rem;
+        margin-top: -2rem;
+    }
+}

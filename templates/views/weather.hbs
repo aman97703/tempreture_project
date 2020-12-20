@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    {{>headitem}}
+
+    <title>Tempreture Website</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/weather.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+
+<body>
+    {{>navbar}}
+
+    {{!-- <!-- main header --> --}}
+    <div class="container-fluid main_menu">
+        <div class="row">
+            <div class="col-md-10 col-12 mx-auto">
+                <div class="main_content">
+                    <form class="temp_form">
+                        <input type="text" name="cityname" id="cityname" placeholder="Enter Your City Name" autocomplete="off">
+                        <input type="submit" value="Search"  id="submit_btn">
+                    </form>
+                </div>
+                {{!-- temp Information --}}
+                <div class="temp_information">
+                    <div class="top_layer">
+                        <p id="day">Tuesday</p>
+                        <p id="today_date"><span id="date">13</span><sup>th</sup> <span id="month">OCT</span></p>
+                    </div>
+                    {{!-- main layer --}}
+                    <div class="main_layer">
+                        <p id="city_name">Out will show here</p>
+                        <div class="middle_layer data_hide">
+                            <p id="temp"><span id="temp_real_val">0</span> <sup class="temp_sup">o</sup>C</p>
+                            <p id="temp_status"><i class="fa fa-cloud" aria-hidden="true"></i></p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- footer -->
+    {{>footer}}
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    {{>bootscript}}
+
+    <script src="js/main.js"></script>
+    <script>
+        const day = document.getElementById('day');
+        const today_date = document.getElementById('today_date');
+        const date = document.getElementById('date');
+        const month = document.getElementById('month');
+
+        const getCurrentDate = ()=>{
+            let weekday = new Array(7);
+            let monthArr = new Array(12);
+            {{!-- weekdays --}}
+            weekday[0] = "Sunday";
+            weekday[1] = "Monday";
+            weekday[2] = "Tuesday";
+            weekday[3] = "Wednesday";
+            weekday[4] = "Thursday";
+            weekday[5] = "Friday";
+            weekday[6] = "Saturday";
+            {{!-- months --}}
+            monthArr[0] = "JAN";
+            monthArr[1] = "FEB";
+            monthArr[2] = "MAR";
+            monthArr[3] = "APR";
+            monthArr[4] = "MAY";
+            monthArr[5] = "JUN";
+            monthArr[6] = "JUL";
+            monthArr[7] = "AUG";
+            monthArr[8] = "SEP";
+            monthArr[9] = "OCT";
+            monthArr[10] = "NOV";
+            monthArr[11] = "DEC";
+            
+            let currentTime = new Date();
+            let getday = weekday[currentTime.getDay()];
+            
+            day.innerHTML = getday;
+            date.innerHTML = currentTime.getDate();
+            month.innerHTML = monthArr[currentTime.getMonth()];
+
+        }
+        getCurrentDate();
+    </script>
+
+</body>
+
+</html>
